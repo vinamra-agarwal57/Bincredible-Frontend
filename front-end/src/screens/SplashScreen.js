@@ -3,18 +3,18 @@ import { View, Text, Image, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
-  const fadeAnim = useRef(new Animated.Value(1)).current;  // Starting opacity is 1
+  const fadeAnim = useRef(new Animated.Value(1)).current;
   const navigation = useNavigation();
 
   useEffect(() => {
     // Start fade-out animation
     Animated.timing(fadeAnim, {
-      toValue: 0,  // Fade to opacity 0
-      duration: 1000,  // Animation duration
-      delay: 1000,  // Wait 2 seconds before starting fade
+      toValue: 0,
+      duration: 1000,
+      delay: 2000,
       useNativeDriver: true,
     }).start(() => {
-      navigation.replace('HomeScreen');  // Navigate to HomeScreen after fade
+      navigation.replace('HomeScreen');
     });
   }, [fadeAnim, navigation]);
 
